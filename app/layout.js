@@ -1,5 +1,21 @@
 import Link from "next/link";
 import "./globals.css";
+import logo from '../public/img/logo.png';
+import Image from "next/image";
+import { Home, User, Settings, Search, User2, UserRound } from "lucide-react";
+import { Rubik, Open_Sans } from "next/font/google";
+
+
+const rubik = Rubik({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-heading",
+});
+const openSans = Open_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-body",
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -8,31 +24,39 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${rubik.variable} ${openSans.variable}`}>
       <body>
-        <header>
-          <div className="container">
-            <nav>
-              <Link href="/">New Drops</Link>
-              <Link href="/">Men</Link>
-              <Link href="/">Women</Link>
-            </nav>
-            <div>
-              {/* Logo */}
+        <div className="container mt-8">
+
+          <header className="bg-[#fafafa] rounded-3xl px-8 py-9.5">
+            <div className="flex justify-between items-center">
+              <nav className=" flex gap-10">
+                <Link href="/" className=" font-semibold">New Drops 🔥</Link>
+                <Link href="/">Men</Link>
+                <Link href="/">Women</Link>
+              </nav>
+              <div>
+                <Link href="/" className=" max-w-32">
+                  <Image src={logo} />
+                </Link>
+              </div>
+              <div>
+                <div className="flex gap-10">
+                  {/* Search Button */}
+                  <button><Search /></button>
+                  <button><UserRound /></button>
+                  <span className="w-8 h-8 bg-secondary rounded-full grid place-items-center ">0</span>
+                </div>
+                <div>
+                  {/* Contact Icon */}
+                </div>
+                <div>
+                  {/* Cart count badge */}
+                </div>
+              </div>
             </div>
-            <div>
-              <div>
-                {/* Search Button */}
-              </div>
-              <div>
-                {/* Contact Icon */}
-              </div>
-              <div>
-                {/* Cart count badge */}
-              </div>
-            </div>
-          </div>
-        </header>
+          </header>
+        </div>
         {children}
       </body>
     </html>
