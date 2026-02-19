@@ -1,65 +1,146 @@
-import Image from "next/image";
+import ProductCard from "./components/ProductCard";
+import ReviewCard from "./components/ReviewCard";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main>
+      {/* Banner Section */}
+      <section>
+        {/* Heading */}
+        <h1 className="text-[223.5px]">Do it right</h1>
+        {/* Banners Slider */}
+        <div>
+
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* New Products Section */}
+      <section>
+        {/* Heading */}
+        <div className="flex justify-between">
+          <h3>Don’t miss out new drops</h3>
+          <button type="button">Shop New Drops</button>
         </div>
-      </main>
-    </div>
+
+        {/* Products Card Wrapper */}
+        <div>
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+        </div>
+      </section>
+
+      {/* Categories Section */}
+      <section>
+        {/* Heading */}
+        <div className="flex justify-between">
+          <h3>Don’t miss out new drops</h3>
+          <div>
+            <ul>
+              <li><button type="button">Prev</button></li>
+              <li><button type="button">Next</button></li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Category slider */}
+        <div>
+          <CategoryCard />
+          <CategoryCard />
+        </div>
+
+      </section>
+
+      {/* Reviews Section */}
+      <section>
+        <div className="flex justify-between">
+          <h3>Reviews</h3>
+          <button type="button">See all</button>
+        </div>
+        <div className="flex gap-3">
+          <ReviewCard />
+          <ReviewCard />
+          <ReviewCard />
+        </div>
+      </section>
+
+      {/* Newsletter & Footer */}
+      <section>
+        {/* Newsletter */}
+        <div>
+          {/* Left */}
+          <div>
+            <h4>Join our KicksPlus Club & get 15% off</h4>
+            <p>Sign up for free! Join the community.</p>
+            <form>
+              <input type="email" />
+              <button>Submit</button>
+            </form>
+          </div>
+
+          {/* Right */}
+          <div>
+            {/* Logo */}
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div>
+          {/* Top */}
+          <div>
+            {/* About */}
+            <div>
+              <h5>
+                About us
+              </h5>
+              <p>We are the biggest hyperstore in the universe. We got you all cover with our exclusive collections and latest drops.</p>
+            </div>
+
+            {/* Links */}
+            <div>
+              <div>
+                <h6>Categories</h6>
+                <ul>
+                  <li><a href="/">Runners</a></li>
+                  <li><a href="/">Sneakers</a></li>
+                  <li><a href="/">Basketball</a></li>
+                  <li><a href="/">Outdoor</a></li>
+                  <li><a href="/">Golf</a></li>
+                  <li><a href="/">Hiking</a></li>
+                </ul>
+              </div>
+              <div>
+                <h6>Company</h6>
+                <ul>
+                  <li><a href="/">About</a></li>
+                  <li><a href="/">Contact</a></li>
+                  <li><a href="/">Blogs</a></li>
+                </ul>
+              </div>
+
+              <div>
+                <h6>Follow us </h6>
+                <ul>
+                  <li><a href="/">Facebook</a></li>
+                  <li><a href="/">Instagram</a></li>
+                  <li><a href="/">Twitter</a></li>
+                  <li><a href="/">Tiktok</a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+          {/* Bottom */}
+          <div>
+            {/* Logo Vector */}
+          </div>
+        </div>
+      </section>
+      {/* Footer Bottom */}
+      <div>
+        <p>&copy; All rights reserved </p>
+      </div>
+    </main>
   );
 }
