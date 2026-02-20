@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs, Autoplay } from "swiper/modules";
 import Button from "./Button";
-// Swiper styles
+
 import "swiper/css";
 
 const HeroSlider = () => {

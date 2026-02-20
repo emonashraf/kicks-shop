@@ -1,8 +1,11 @@
 import Image from "next/image";
 import ProductCard from "./components/ProductCard";
-import ReviewCard from "./components/ReviewCard";
+import ReviewCard from "./components/TestimonialCard";
 import Button from "./components/Button";
 import Heroslider from "./components/Heroslider";
+import CategoriesSlider from "./components/CategoriesSlider";
+import SectionHeading from "./components/SectionHeading";
+import TestimonialCard from "./components/TestimonialCard";
 
 
 export default function Home() {
@@ -15,78 +18,31 @@ export default function Home() {
           <h1 className="text-[223.5px] text-center">DO IT <span className="text-primary">RIGHT</span></h1>
           {/* Banners Slider */}
           <div className=" rounded-[64px] overflow-hidden">
-            {/* <div className="relative  max-h-187.5 overflow-hidden rounded-[40px]"> */}
-
-            {/* Main Background Image */}
-            {/* <Image src="/img/hero/banner-1.jpg" alt="Hero Banner" width={1600} height={600} className="w-full" />
-              <div className="absolute left-0 top-20 bg-[#232321] text-white p-6 rounded-r-2xl hidden md:block">
-                <p className=" font-semibold [writing-mode:vertical-lr] rotate-180">Nike product of the year</p>
-              </div>
-              <div className="absolute bottom-12 left-8 md:left-16 text-white max-w-md">
-                <h2>Nike Air Max</h2>
-                <p className="text-lg md:text-xl lg:text-2xl mb-6 opacity-90">Nike introducing the new air max for everyone's comfort</p>
-                <Button text="SHOP NOW" />
-              </div> */}
-
-            {/* Right Side: Small Thumbnails */}
-            {/* <div className="absolute right-8 bottom-12 flex flex-col gap-4">
-                <div className="w-24 h-24 md:w-32 md:h-32 rounded-2xl border-2 border-white overflow-hidden cursor-pointer hover:scale-105 transition-transform">
-                  <Image
-                    src="/img/hero/banner-2.jpg"
-                    alt="Thumbnail 1"
-                    width={128} height={128}
-                    className="object-cover h-full w-full"
-                  />
-                </div>
-                <div className="w-24 h-24 md:w-32 md:h-32 rounded-2xl border-2 border-white/50 overflow-hidden cursor-pointer hover:scale-105 transition-transform opacity-80">
-                  <Image
-                    src="/img/hero/banner-3.jpg"
-                    alt="Thumbnail 2"
-                    width={128} height={128}
-                    className="object-cover h-full w-full"
-                  />
-                </div>
-
-              </div> */}
-
-            {/* </div> */}
+            {/* HeroSlider  */}
             <Heroslider />
-          </div>
-          <div>
-
           </div>
         </div>
       </section>
 
       {/* New Products Section */}
-      <section>
+      <section className="pt-22.5">
         {/* Heading */}
-        <div className="flex justify-between">
-          <h3>Don’t miss out new drops</h3>
-          <button type="button">Shop New Drops</button>
-        </div>
+        <div className="container bg-dark-gray">
+          <SectionHeading title="DON'T MISS OUT NEW DROPS" buttonText="Shop New Drops" />
 
-        {/* Products Card Wrapper */}
-        <div>
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          {/* Products Card Wrapper */}
+          <div className="grid grid-cols-4 gap-4">
+            <ProductCard src="/img/products/1.jpg" link="/" badge="NEW" title="ADIDAS 4DFWD X PARLEY RUNNING SHOES" buttonText="VIEW PRODUCT" price="$125" />
+            <ProductCard src="/img/products/2.jpg" link="/" badge="NEW" title="ADIDAS 4DFWD X PARLEY RUNNING SHOES" buttonText="VIEW PRODUCT" price="$125" />
+            <ProductCard src="/img/products/3.jpg" link="/" badge="NEW" title="ADIDAS 4DFWD X PARLEY RUNNING SHOES" buttonText="VIEW PRODUCT" price="$125" />
+            <ProductCard src="/img/products/4.jpg" link="/" badge="NEW" title="ADIDAS 4DFWD X PARLEY RUNNING SHOES" buttonText="VIEW PRODUCT" price="$125" />
+          </div>
         </div>
       </section>
 
       {/* Categories Section */}
       <section>
-        {/* Heading */}
-        <div className="flex justify-between">
-          <h3>Don’t miss out new drops</h3>
-          <div>
-            <ul>
-              <li><button type="button">Prev</button></li>
-              <li><button type="button">Next</button></li>
-            </ul>
-          </div>
-        </div>
+        <CategoriesSlider />
 
         {/* Category slider */}
         <div>
@@ -97,15 +53,15 @@ export default function Home() {
       </section>
 
       {/* Reviews Section */}
-      <section>
-        <div className="flex justify-between">
-          <h3>Reviews</h3>
-          <button type="button">See all</button>
-        </div>
-        <div className="flex gap-3">
-          <ReviewCard />
-          <ReviewCard />
-          <ReviewCard />
+      <section className="py-30">
+        <div className="container">
+          <SectionHeading title="REVIEWS" buttonText="SEE ALL" />
+          <div className="grid grid-cols-3 gap-4">
+            <TestimonialCard productImage="/img/testimonials/1.jpg" userImage="/img/testimonials/user-1.jpg" title="ADIDAS 4DFWD X PARLEY RUNNING SHOES" review="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, quae." rating="4.5" />
+            <TestimonialCard productImage="/img/testimonials/2.jpg" userImage="/img/testimonials/user-1.jpg" title="ADIDAS 4DFWD X PARLEY RUNNING SHOES" review="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, quae." rating="4.5" />
+            <TestimonialCard productImage="/img/testimonials/3.jpg" userImage="/img/testimonials/user-1.jpg" title="ADIDAS 4DFWD X PARLEY RUNNING SHOES" review="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, quae." rating="4.5" />
+
+          </div>
         </div>
       </section>
 
