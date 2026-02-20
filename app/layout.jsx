@@ -1,9 +1,9 @@
 import Link from "next/link";
 import "./globals.css";
-import logo from '../public/img/logo.png';
 import Image from "next/image";
 import { Home, User, Settings, Search, User2, UserRound } from "lucide-react";
 import { Rubik, Open_Sans } from "next/font/google";
+import Footer from "./components/Footer";
 
 
 const rubik = Rubik({
@@ -27,17 +27,16 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${rubik.variable} ${openSans.variable}`}>
       <body>
         <div className="container mt-8">
-
-          <header className="bg-[#fafafa] rounded-3xl px-8 py-9.5">
+          <header className="bg-[#fafafa] rounded-3xl p-8">
             <div className="flex justify-between items-center">
               <nav className=" flex gap-10">
-                <Link href="/" className=" font-semibold">New Drops 🔥</Link>
+                <Link href="/" className=" font-rubik font-bold">New Drops 🔥</Link>
                 <Link href="/">Men</Link>
                 <Link href="/">Women</Link>
               </nav>
               <div>
                 <Link href="/" className=" max-w-32">
-                  <Image src={logo} />
+                  <Image src="/img/logo/logo.png" alt="logo" width={128} height={32} />
                 </Link>
               </div>
               <div>
@@ -58,6 +57,7 @@ export default function RootLayout({ children }) {
           </header>
         </div>
         {children}
+        <Footer />
       </body>
     </html>
   );

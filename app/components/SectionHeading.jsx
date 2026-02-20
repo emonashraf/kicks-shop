@@ -7,7 +7,7 @@ export default function SectionHeading({
 }) {
   return (
     <div className="flex items-end justify-between mb-8">
-      <h2 className="max-w-[40%]">{title}</h2>
+      <h2 className="max-w-147.5 leading-[.948]">{title}</h2>
 
       {buttonText && (
         <Button text={buttonText} href={buttonLink} />
