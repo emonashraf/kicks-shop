@@ -43,7 +43,11 @@ const Button = ({
 
     if (href) {
         return (
-            <Link href={href} className={sharedClasses}>
+            <Link
+                href={href}
+                onClick={onClick}   // ✅ added
+                className={sharedClasses}
+            >
                 {content}
             </Link>
         );

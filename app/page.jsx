@@ -27,7 +27,7 @@ export default function Home() {
 
           {/* Products Card Wrapper */}
           <div className="grid grid-cols-4 gap-4">
-            <ProductCard src="/img/products/1.jpg" link="/" badge="NEW" title="ADIDAS 4DFWD X PARLEY RUNNING SHOES" buttonText="VIEW PRODUCT" price="$125" />
+            <ProductCard src="/img/products/1.jpg" link="/product/1" badge="NEW" title="ADIDAS 4DFWD X PARLEY RUNNING SHOES" buttonText="VIEW PRODUCT" price="$125" />
             <ProductCard src="/img/products/2.jpg" link="/" badge="NEW" title="ADIDAS 4DFWD X PARLEY RUNNING SHOES" buttonText="VIEW PRODUCT" price="$125" />
             <ProductCard src="/img/products/3.jpg" link="/" badge="NEW" title="ADIDAS 4DFWD X PARLEY RUNNING SHOES" buttonText="VIEW PRODUCT" price="$125" />
             <ProductCard src="/img/products/4.jpg" link="/" badge="NEW" title="ADIDAS 4DFWD X PARLEY RUNNING SHOES" buttonText="VIEW PRODUCT" price="$125" />
@@ -39,18 +39,7 @@ export default function Home() {
       <section className="bg-dark-gray pt-24">
         <div className="container mx-auto px-4">
           {/* section heading */}
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-white">CATEGORIES</h2>
-            <div className="flex gap-4">
-              <button className="prev-btn w-10 h-10 cursor-pointer rounded-lg bg-white text-dark-gray flex items-center justify-center hover:bg-gray-200 transition-colors disabled:opacity-100 disabled:bg-[#E7E7E3]">
-                <ChevronLeft size={24} />
-              </button>
-
-              <button className="next-btn w-10 h-10 cursor-pointer rounded-lg bg-white text-dark-gray flex items-center justify-center hover:bg-gray-200 transition-colors disabled:opacity-100 disabled:bg-[#E7E7E3]">
-                <ChevronRight size={24} />
-              </button>
-            </div>
-          </div>
+          <SectionHeading title="CATEGORIES" titleClassName="text-white" sliderBtn={true} />
         </div>
         {/* Categories Slider */}
         <CategoriesSlider />
@@ -67,14 +56,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Newsletter & Footer */}
-
-
-      {/* Footer Bottom */}
-      {/* <div>
-        <p>&copy; All rights reserved </p>
-      </div> */}
     </>
   );
 }

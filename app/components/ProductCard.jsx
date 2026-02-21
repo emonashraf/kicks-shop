@@ -4,7 +4,7 @@ import Button from './Button';
 
 const ProductCard = ({ src, badge, title, buttonText, price, link = "#" }) => {
   return (
-    <div className="group">
+    <div className="group  flex flex-col align-between">
       <div className="bg-[#F5F5F5] rounded-[28px] p-2 overflow-hidden ">
         {/* New Badge */}
         <div className="relative">
