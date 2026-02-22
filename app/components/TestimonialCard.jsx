@@ -1,19 +1,24 @@
 import Image from 'next/image';
-import Avatar from './Avater';
+
 import ProductRating from './ProductRating';
+import Link from 'next/link';
 
 const TestimonialCard = ({ title, review, rating, userImage, productImage }) => {
   return (
-    <div className="w-full bg-white rounded-4xl overflow-hidden shadow-sm">
+    <div className="w-full bg-white rounded-fluid-32-16 overflow-hidden shadow-sm">
       {/* Top Content Section */}
-      <div className="p-8">
-        <div className="flex justify-between items-start mb-2">
+      <div className="p-fluid-32-16">
+        <div className="flex justify-between gap-0.5 items-start mb-2">
           <div>
             <h4>{title}</h4>
             <p className="text-gray-600 mt-1">{review}</p>
           </div>
           {/* User Avatar */}
-          <Avatar src={userImage} />
+          <div>
+            <Link href="#" className='rounded-full w-fluid-64 h-fluid-64 overflow-hidden block'>
+              <Image src={userImage} alt="User Avatar" width={50} height={50} className="object-cover w-full h-full" />
+            </Link>
+          </div>
         </div>
 
         {/* Rating Stars */}

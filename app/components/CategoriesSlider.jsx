@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 // Swiper styles
 import "swiper/css";
@@ -34,16 +34,16 @@ const CategoriesSlider = () => {
           640: { slidesPerView: 1.5 },
           1024: { slidesPerView: 2 },
         }}
-        className="rounded-tl-[48px] overflow-hidden"
+        className="rounded-tl-fluid-48 overflow-hidden"
       >
         {categories.map((cat, index) => (
           <SwiperSlide key={cat.id}>
             <Link href="/"
-              className="relative h-100 md:h-137.5 p-10 flex flex-col justify-end group cursor-pointer"
+              className="relative h-100 md:h-137.5 py-fluid-30 px-fluid-48-16 flex flex-col justify-end group cursor-pointer"
               style={{ backgroundColor: colors[index % colors.length] }}
             >
               {/* Product Image */}
-              <div className="absolute inset-0 flex items-center justify-center p-12">
+              <div className="absolute top-0 left-0 right-0 bottom-30  flex items-center justify-center ">
                 <Image
                   src={cat.image}
                   alt={cat.name}

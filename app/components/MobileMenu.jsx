@@ -1,6 +1,5 @@
-"use client"; // এই লাইনটা মাস্ট, নাহলে এরর যাবে না
+"use client";
 
-import React, { useEffect } from "react";
 import {
   Sheet,
   SheetContent,
@@ -10,54 +9,74 @@ import {
 } from "@/components/ui/sheet";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 export default function MobileMenu() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [showPanel, setShowPanel] = useState(false);
 
-  const removeDefaultClose = () => {
-    setTimeout(() => {
-      const defaultButtons = document.querySelectorAll('button[type="button"]');
-      defaultButtons.forEach((btn) => {
-        if (btn.querySelector('svg.lucide-x') && !btn.classList.contains('my-custom-close')) {
-          btn.style.display = 'none';
-        }
+  useEffect(() => {
+    if (isOpen) {
+
+      const frame = requestAnimationFrame(() => {
+        setShowPanel(true);
       });
-    }, 10);
-  };
+      return () => cancelAnimationFrame(frame);
+    } else {
+      const timeout = setTimeout(() => setShowPanel(false), 500);
+      return () => clearTimeout(timeout);
+    }
+  }, [isOpen]);
 
   return (
-    <Sheet onOpenChange={(open) => open && removeDefaultClose()}>
+    <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
-        <button className="p-2 bg-white rounded-xl shadow-sm active:scale-90 transition-transform outline-none border-none">
+        <button className="cursor-pointer">
           <Menu size={24} />
         </button>
       </SheetTrigger>
 
       <SheetContent
         side="left"
-        className="custom-sheet-anim fixed left-0 top-0 z-[100] h-full w-[80%] max-w-[320px] bg-white p-6 shadow-2xl border-none outline-none flex flex-col"
+        className="p-0 bg-transparent border-none shadow-none [&>button]:hidden pointer-events-none"
       >
-        <div className="flex justify-between items-center mb-10">
-          <SheetTitle className="font-rubik font-bold text-2xl uppercase italic tracking-tighter">
-            Menu
-          </SheetTitle>
+        <div
+          className={`
+            h-full w-[85%] max-w-[320px] bg-white p-6 shadow-2xl flex flex-col
+            pointer-events-auto will-change-transform
+            transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]
+            ${(isOpen && showPanel) ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"}
+          `}
+        >
+          {/* Header */}
+          <div className="flex justify-between items-center mb-10">
+            <SheetTitle className="font-rubik font-bold text-2xl uppercase italic tracking-tighter">
+              Menu
+            </SheetTitle>
 
-          {/* আপনার কাস্টম ক্লোজ বাটন */}
-          <SheetClose className="my-custom-close p-2 hover:bg-zinc-100 rounded-full transition-colors outline-none border-none">
-            <X size={30} strokeWidth={2.5} className="text-black" />
-          </SheetClose>
-        </div>
+            <SheetClose asChild>
+              <button
+                className="p-2 hover:bg-zinc-100 rounded-full transition-colors cursor-pointer"
+                onClick={() => setIsOpen(false)}
+              >
+                <X size={30} strokeWidth={2.5} />
+              </button>
+            </SheetClose>
+          </div>
 
-        <nav className="flex flex-col gap-6 text-xl font-bold font-rubik tracking-tight">
-          <Link href="/" className="hover:text-primary transition-all duration-300">NEW DROPS 🔥</Link>
-          <Link href="/" className="hover:text-primary transition-all duration-300">MEN</Link>
-          <Link href="/" className="hover:text-primary transition-all duration-300">WOMEN</Link>
-          <Link href="/" className="hover:text-primary transition-all duration-300">KIDS</Link>
-        </nav>
+          {/* Navigation */}
+          <nav className="flex flex-col gap-6 text-xl font-bold font-rubik tracking-tight">
+            <Link href="/" onClick={() => setIsOpen(false)}>NEW DROPS 🔥</Link>
+            <Link href="/" onClick={() => setIsOpen(false)}>MEN</Link>
+            <Link href="/" onClick={() => setIsOpen(false)}>WOMEN</Link>
+          </nav>
 
-        <div className="mt-auto pt-6 border-t border-zinc-100">
-          <div className="flex flex-col gap-4 text-sm font-semibold text-zinc-400 uppercase italic">
-            <Link href="/" className="hover:text-black">My Account</Link>
-            <Link href="/" className="hover:text-black">Track Order</Link>
+          {/* Bottom */}
+          <div className="mt-auto pt-6 border-t border-zinc-100">
+            <div className="flex flex-col gap-4 text-sm font-semibold text-zinc-400 uppercase italic">
+              <Link href="/" onClick={() => setIsOpen(false)}>My Account</Link>
+              <Link href="/" onClick={() => setIsOpen(false)}>Track Order</Link>
+            </div>
           </div>
         </div>
       </SheetContent>

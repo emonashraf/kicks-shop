@@ -9,16 +9,16 @@ export default function SectionHeading({
   titleClassName = "",
   wrapperClassName = "",
   arrowClassName = "",
-}) { 
+}) {
   return (
-    <div className="flex items-end justify-between mb-8">
+    <div className="flex gap-2 items-end justify-between mb-8">
 
-      <h2 className={`max-w-153 leading-[.948] ${titleClassName}`}>
+      <h2 className={`capitalize sm:uppercase max-w-100 sm:max-w-120 md:max-w-135 lg:max-w-145 xl:max-w-153 leading-[.948] ${titleClassName}`}>
         {title}
       </h2>
       <div className={`flex gap-4 items-center ${wrapperClassName}`}>
         {buttonText && (
-          <Button text={buttonText} href={buttonLink} />
+          <Button text={buttonText} href={buttonLink} className="w-max" />
         )}
 
         {sliderBtn && (

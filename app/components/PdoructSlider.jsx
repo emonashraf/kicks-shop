@@ -3,7 +3,6 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Import Swiper necessary styles
 import 'swiper/css';
@@ -15,12 +14,12 @@ import SliderArrowBtn from './SliderArrowBtn';
 import SectionHeading from './SectionHeading';
 
 const ProductSlider = ({ products = [] }) => {
-  // Guard clause to prevent rendering if no products are found
+
   if (!products || products.length === 0) return null;
 
   return (
     <>
-      {/* SWIPER CAROUSEL */}
+
       <Swiper
         modules={[Navigation, Pagination]}
         spaceBetween={20}

@@ -4,12 +4,16 @@
   --body-bg: #e7e7e3;
   --bg-off-white: #fafafa;
   --foreground: #171717;
+  /* Fixed HSL format for v4 */
   --dark-gray: 60 2% 14%;
   --primary: 228 72% 59%;
   --secondary: 34 100% 59%;
+
+  /* Font fallbacks */
+  --font-rubik: "Rubik", sans-serif;
+  --font-open-sans: "Open Sans", sans-serif;
 }
 
-/* Tailwind v4 Theme Variables */
 @theme inline {
   --color-body-bg: var(--body-bg);
   --color-off-white: var(--bg-off-white);
@@ -17,40 +21,99 @@
   --color-dark-gray: hsl(var(--dark-gray));
   --color-primary: hsl(var(--primary));
   --color-secondary: hsl(var(--secondary));
+
   --font-heading: var(--font-rubik);
   --font-body: var(--font-open-sans);
-  --text-flueid-32: clamp(1.25rem, 1.063rem + 0.938vw, 2rem); /* 20px -> 32px (Fluid) */
-  --text-fluid-24: clamp(1rem, 0.875rem + 0.625vw, 1.5rem);/* 16px -> 24px (Fluid) */
-  --text-fluid-20: clamp(0.875rem, 0.781rem + 0.469vw, 1.25rem); /* 14px -> 20px (Fluid) */
-  --spacing-fluid-48: clamp(0.5rem, -0.125rem + 3.125vw, 3rem);/* 8px -> 48px (Fluid) */
-  --spacing-fluid-32: clamp(1.5rem, 1.375rem + 0.625vw, 2rem);/* 24px -> 32px (Fluid) */
-  --spacing-fluid-32-16: clamp(1rem, 0.75rem + 1.25vw, 2rem);/* 24px -> 32px (Fluid) */
-  --spacing-fluid-24: clamp(1rem, 0.875rem + 0.625vw, 1.5rem);/* 16px -> 24px (Fluid) */
-  --spacing-fluid-20: clamp(0.75rem, 0.625rem + 0.625vw, 1.25rem);/* 12px -> 20px (Fluid) */
 
+  /* Fixed typo: flueid -> fluid */
+  --text-fluid-32: clamp(1.25rem, 1.063rem + 0.938vw, 2rem);
+  --text-fluid-24: clamp(1rem, 0.875rem + 0.625vw, 1.5rem);
+  --text-fluid-24-14: clamp(0.875rem, 0.429rem + 1.19vw, 1.5rem);
+  --text-fluid-20: clamp(0.875rem, 0.781rem + 0.469vw, 1.25rem);
+  --text-fluid-20-16:clamp(1rem, 0.938rem + 0.313vw, 1.25rem);
+  --text-fluid-16: clamp(0.75rem, 0.688rem + 0.313vw, 1rem);
+
+
+  --spacing-fluid-128: clamp(1.5rem, -0.125rem + 8.125vw, 8rem);
+  --spacing-fluid-90: clamp(1.5rem, 0.469rem + 5.156vw, 5.625rem);
+  --spacing-fluid-72: clamp(1rem, 0.125rem + 4.375vw, 4.5rem);
+
+  --spacing-fluid-64: clamp(3rem, 2.75rem + 1.25vw, 4rem);
+  --spacing-fluid-48: clamp(0.5rem, -0.125rem + 3.125vw, 3rem);
+  --spacing-fluid-48-16: clamp(1rem, 0.5rem + 2.5vw, 3rem);
+  --spacing-fluid-48-16: clamp(1rem, 0.5rem + 2.5vw, 3rem);
+  --spacing-fluid-32: clamp(1.5rem, 1.375rem + 0.625vw, 2rem);
+  --spacing-fluid-32-16: clamp(1rem, 0.75rem + 1.25vw, 2rem);
+  --spacing-fluid-30: clamp(1rem, 0.781rem + 1.094vw, 1.875rem);
+  --spacing-fluid-24: clamp(1rem, 0.875rem + 0.625vw, 1.5rem);
+  --spacing-fluid-24-8: clamp(0.5rem, 0.25rem + 1.25vw, 1.5rem);
+  --spacing-fluid-20: clamp(0.75rem, 0.625rem + 0.625vw, 1.25rem);
+  --spacing-fluid-16: clamp(0.5rem, 0.375rem + 0.625vw, 1rem);
+  --spacing-fluid-12: clamp(0.25rem, 0.125rem + 0.625vw, 0.75rem);
+
+
+  --radius-fluid-64: clamp(1.5rem, 0.875rem + 3.125vw, 4rem);
+  --radius-fluid-48: clamp(1.5rem, 1.125rem + 1.875vw, 3rem);
+  --radius-fluid-32: clamp(0.5rem, 0.125rem + 1.875vw, 2rem);
+  --radius-fluid-32-16: clamp(1rem, 0.75rem + 1.25vw, 2rem);
+
+  --radius-fluid-28: clamp(1rem, 0.813rem + 0.938vw, 1.75rem);
+  --radius-fluid-24: clamp(0.75rem, 0.563rem + 0.938vw, 1.5rem);
+
+
+
+
+  /* Standard Keyframes */
+  @keyframes slide-in-left {
+    from {
+      transform: translateX(-100%);
+    }
+
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-out-left {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
 }
 
-/* Base Styles */
 @layer base {
   body {
-     @apply bg-body-bg font-body text-dark-gray;
-  }
-  p{
-    @apply text-dark-gray/80;
+    @apply bg-body-bg font-body text-dark-gray;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);  
+  p {
+    @apply text-dark-gray/80;
+    font-size: clamp(0.875rem, 0.844rem + 0.156vw, 1rem);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
     line-height: 1.19;
   }
 
   h1 {
-    @apply font-bold leading-[1.1849]!;
-    font-size: clamp(6.25rem, 4.32rem + 9.648vw, 13.969rem);
+    /* font-size: clamp(3.75rem, -3.549rem + 19.464vw, 13.969rem); */
+    font-weight: 700;
   }
 
+  /* Example usage of fluid utility */
+
   h2 {
-    font-size: clamp(2.5rem, 1.969rem + 2.656vw, 4.625rem);
+    font-size: clamp(1.5rem, 0.719rem + 3.906vw, 4.625rem);
     font-weight: 600;
   }
 
@@ -63,99 +126,119 @@
     font-size: clamp(1.125rem, 1.031rem + 0.469vw, 1.5rem);
     font-weight: 600;
   }
-  h6{
+
+  h6 {
     font-size: 16px;
     font-weight: 600;
   }
 }
 
+
+.container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  /* max-width: 358px; */
+
+  @media (min-width: 640px) {
+    max-width: var(--breakpoint-sm);
+  }
+
+  @media (min-width: 768px) {
+    max-width: var(--breakpoint-md);
+  }
+
+  @media (min-width: 1024px) {
+    max-width: var(--breakpoint-lg);
+  }
+
+  @media (min-width: 1280px) {
+    max-width: var(--breakpoint-xl);
+  }
+
+  @media (min-width: 1536px) {
+    max-width: 1320px !important;
+    padding: 0 !important;
+  }
+}
+
+.container-left {
+  width: 100%;
+  margin-left: auto;
+  padding-left: 1rem;
+
+  @media (min-width: 640px) {
+    max-width: calc(100% - ((100vw - var(--breakpoint-sm)) / 2));
+  }
+
+  @media (min-width: 768px) {
+    max-width: calc(100% - ((100vw - var(--breakpoint-md)) / 2));
+  }
+
+  @media (min-width: 1024px) {
+    max-width: calc(100% - ((100vw - var(--breakpoint-lg)) / 2));
+  }
+
+  @media (min-width: 1280px) {
+    max-width: calc(100% - ((100vw - var(--breakpoint-xl)) / 2));
+  }
+
+  @media (min-width: 1536px) {
+    max-width: calc(100% - ((100vw - 1320px) / 2));
+    padding-left: 0;
+  }
+}
+
 @layer utilities {
-  .font-rubik {
-    font-family: var(--font-heading);
+  [data-state='open'].fixed.inset-0 {
+    animation: backdrop-fade-in 0.4s ease-out forwards;
   }
 
-  .font-open-sans {
-    font-family: var(--font-body);
+  [data-state='closed'].fixed.inset-0 {
+    animation: backdrop-fade-out 0.4s ease-in forwards;
   }
-  
-}
-/* Components */
-  @layer components {
-  
-    .container {
-      margin-inline: auto; 
-      padding-inline: 1rem; 
-      width: 100%; 
 
-      /* Small screens (sm: 640px and up) */
-      @media (min-width: 640px) {
-        max-width: 640px;
-      }
-
-      /* Medium screens (md: 768px and up) */
-      @media (min-width: 768px) {
-        max-width: 768px;
-        padding-inline: 1.5rem;
-      }
-
-      /* Large screens (lg: 1024px and up) */
-      @media (min-width: 1024px) {
-        max-width: 1024px;
-        padding-inline: 2rem;
-      }
-
-      /* Extra large screens (xl: 1280px and up) */
-      @media (min-width: 1280px) {
-        max-width: 1280px;
-      }
-
-      /* 2xl screens (1536px and up) - Locking max-width at 1320px for design consistency */
-      @media (min-width: 1536px) {
-        max-width: 1320px;
-      }
+  @keyframes backdrop-fade-in {
+    from {
+      opacity: 0;
+      background-color: transparent;
     }
-    /* Animation Keyframes */
-/* Shadcn এর ডিফল্ট ছোট Close বাটনটি হাইড করার জন্য */
-.hide-default-close button[type="button"]:has(svg.lucide-x) {
-  display: none !important;
-}
 
-/* যদি উপরের কোড কাজ না করে তবে এটি ট্রাই করুন */
-.hide-default-close > button:last-child {
-  display: none !important;
-}
-
-/* আপনার আগের অ্যানিমেশন লজিক */
-.custom-sheet-anim[data-state='open'] {
-  animation: slide-in-left 0.5s cubic-bezier(0.32, 0.72, 0, 1) forwards !important;
-}
-.custom-sheet-anim[data-state='closed'] {
-  animation: slide-out-left 0.45s cubic-bezier(0.32, 0.72, 0, 1) forwards !important;
-}
-
-@keyframes slide-in-left { from { transform: translateX(-100%); } to { transform: translateX(0); } }
-@keyframes slide-out-left { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+    to {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
   }
-/* Swiper Custom Pagination with Fixed 40px Width */
+
+  @keyframes backdrop-fade-out {
+    from {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    to {
+      opacity: 0;
+      background-color: transparent;
+    }
+  }
+}
+
+/* Swiper Styles */
 .custom-pagination {
-  display: flex !important;
-  justify-content: center; /* Centers the dots */
-  gap: 10px; /* No gap between dots for a continuous line look */
-  height: 6px !important;
-  width: auto !important; /* Allows width to grow based on dots */
-  margin: 0 auto;
+  /* Change h-[6px]! to !h-[6px] */
+  @apply flex justify-center gap-[10px] !h-[6px] !w-auto mx-auto;
 }
 
 .custom-pagination .swiper-pagination-bullet {
-  width: 40px !important; /* Fixed width as requested */
-  height: 6px; 
-  border-radius: 3px;
-  margin: 0 !important;
-  background: #D1D5DB; /* Base color: zinc-300 */
-  opacity: 1;
-  transition: all 0.3s ease;
+  /* Change w-[40px]! to !w-[40px] */
+  @apply !w-[40px] h-[6px] rounded-[3px] !m-0 bg-[#D1D5DB] opacity-100 transition-all duration-300;
 }
 
 .custom-pagination .swiper-pagination-bullet-active {
-  background: #4B6BFB !important; /* Active blue color */
+  /* Change bg-[#4B6BFB]! to !bg-[#4B6BFB] */
+  @apply bg-primary;
+}
+
+.swiper-slide {
+  height: auto !important;
 }

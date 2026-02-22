@@ -14,8 +14,8 @@ const Button = ({
 }) => {
 
     const sizeClasses = {
-        sm: 'px-4 py-2 text-sm',
-        md: 'px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8 py-3.5 text-sm ',
+        sm: 'px-4 sm:px-5 md:px-6 lg:px-7 xl:px-8 py-1.5 md:py-2.5 lg:py-3 xl:py-3.5 text-sm',
+        md: 'px-4 sm:px-5 md:px-6 lg:px-7 xl:px-8 py-2.5 md:py-2.5 lg:py-3 xl:py-3.5 text-sm ',
         lg: 'px-10 py-4 text-lg',
     };
 
@@ -27,7 +27,7 @@ const Button = ({
 
     const sharedClasses = `
     inline-flex items-center justify-center gap-2
-    rounded-lg font-bold transition-all duration-300 
+    rounded-lg font-rubik font-medium transition-all duration-300 
     active:scale-95 shadow-lg 
     ${sizeClasses[size]} 
     ${variants[variant]} 
@@ -45,7 +45,7 @@ const Button = ({
         return (
             <Link
                 href={href}
-                onClick={onClick}   // ✅ added
+                onClick={onClick}
                 className={sharedClasses}
             >
                 {content}

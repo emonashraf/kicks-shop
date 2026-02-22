@@ -2,8 +2,7 @@ import ProductCard from "./components/ProductCard";
 import Heroslider from "./components/Heroslider";
 import CategoriesSlider from "./components/CategoriesSlider";
 import SectionHeading from "./components/SectionHeading";
-import TestimonialCard from "./components/TestimonialCard";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import Testimonials from "./components/Testimonials";
 
 export default function Home() {
   return (
@@ -12,21 +11,17 @@ export default function Home() {
       <section>
         <div className="container">
           {/* Heading */}
-          <h1 className="my-6">DO IT <span className="text-primary">RIGHT</span></h1>
-          {/* Banners Slider */}
-          <div className=" rounded-[64px] overflow-hidden">
-            {/* HeroSlider  */}
-            <Heroslider />
-          </div>
+          <h1 className=" my-6 text-6xl sm:text-[100px] md:text-[120px] lg:text-[160px] xl:text-[200px] 2xl:text-[223.5px] font-bold">DO IT <span className="text-primary">RIGHT</span></h1>
+          {/* HeroSlider  */}
+          <Heroslider />
         </div>
       </section>
       {/* New Products Section */}
-      <section className="pt-22.5 pb-32">
+      <section className="mt-fluid-90 mb-fluid-128">
         <div className="container">
-          <SectionHeading title="DON'T MISS OUT NEW DROPS" buttonText="Shop New Drops" />
-
+          <SectionHeading title=" Don't miss out new drops" buttonText="Shop New Drops" />
           {/* Products Card Wrapper */}
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-6 gap-x-4">
             <ProductCard src="/img/products/1.jpg" link="/product/1" badge="NEW" title="ADIDAS 4DFWD X PARLEY RUNNING SHOES" buttonText="VIEW PRODUCT" price="$125" />
             <ProductCard src="/img/products/2.jpg" link="/" badge="NEW" title="ADIDAS 4DFWD X PARLEY RUNNING SHOES" buttonText="VIEW PRODUCT" price="$125" />
             <ProductCard src="/img/products/3.jpg" link="/" badge="NEW" title="ADIDAS 4DFWD X PARLEY RUNNING SHOES" buttonText="VIEW PRODUCT" price="$125" />
@@ -36,7 +31,7 @@ export default function Home() {
       </section>
 
       {/* Categories Section */}
-      <section className="bg-dark-gray pt-24">
+      <section className="bg-dark-gray pt-fluid-128 pb-6 sm:pb-0">
         <div className="container mx-auto px-4">
           {/* section heading */}
           <SectionHeading title="CATEGORIES" titleClassName="text-white" sliderBtn={true} />
@@ -46,7 +41,7 @@ export default function Home() {
       </section>
 
       {/* Reviews Section */}
-      <section className="py-30">
+      {/* <section className="py-30">
         <div className="container">
           <SectionHeading title="REVIEWS" buttonText="SEE ALL" />
           <div className="grid grid-cols-3 gap-4">
@@ -55,7 +50,8 @@ export default function Home() {
             <TestimonialCard productImage="/img/testimonials/3.jpg" userImage="/img/testimonials/user-1.jpg" title="Good Quality " review="I highly recommend shopping from kicks" rating="4.5" />
           </div>
         </div>
-      </section>
+      </section> */}
+      <Testimonials />
     </>
   );
 }

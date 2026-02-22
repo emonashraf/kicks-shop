@@ -10,29 +10,29 @@ const Footer = () => {
       <div className="container">
 
         {/* Newsletter Section (Blue Box) */}
-        <div className="bg-primary rounded-[48px]">
+        <div className="bg-primary rounded-fluid-48">
           <Newsletter />
 
           {/* Main Footer Links (Black Box) */}
-          <div className="relative bg-[#232321] rounded-[48px] p-10 overflow-hidden">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-12.25">
+          <div className="relative bg-dark-gray rounded-fluid-48 p-10 pb-0 overflow-hidden">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 ">
 
               {/* About Us */}
-              <div className='col-span-2'>
-                <h3 className="text-secondary mb-3.5">About us</h3>
-                <p className="text-white/70  text-xl font-semibold max-w-121.5">We are the biggest hyperstore in the universe. We got you all covered with our exclusive collections and latest drops.</p>
+              <div className='sm:col-span-2'>
+                <h3 className="text-secondary mb-1">About us</h3>
+                <p className="text-white/70 text-fluid-20-16 font-semibold max-w-121.5">We are the biggest hyperstore in the universe. We got you all covered with our exclusive collections and latest drops.</p>
               </div>
 
               {/* Categories */}
               <div>
                 <h4 className="text-secondary mb-3.5">Categories</h4>
                 <ul className="text-white/90 space-y-2 font-medium">
-                  <li><Link href="#" className="text-xl font-semibold hover:text-white transition-colors">Runners</Link></li>
-                  <li><Link href="#" className="text-xl font-semibold hover:text-white transition-colors">Sneakers</Link></li>
-                  <li><Link href="#" className="text-xl font-semibold hover:text-white transition-colors">Basketball</Link></li>
-                  <li><Link href="#" className="text-xl font-semibold hover:text-white transition-colors">Outdoor</Link></li>
-                  <li><Link href="#" className="text-xl font-semibold hover:text-white transition-colors">Golf</Link></li>
-                  <li><Link href="#" className="text-xl font-semibold hover:text-white transition-colors">Hiking</Link></li>
+                  <li><Link href="#" className="text-fluid-20-16 font-semibold hover:text-white transition-colors">Runners</Link></li>
+                  <li><Link href="#" className="text-fluid-20-16 font-semibold hover:text-white transition-colors">Sneakers</Link></li>
+                  <li><Link href="#" className="text-fluid-20-16 font-semibold hover:text-white transition-colors">Basketball</Link></li>
+                  <li><Link href="#" className="text-fluid-20-16 font-semibold hover:text-white transition-colors">Outdoor</Link></li>
+                  <li><Link href="#" className="text-fluid-20-16 font-semibold hover:text-white transition-colors">Golf</Link></li>
+                  <li><Link href="#" className="text-fluid-20-16 font-semibold hover:text-white transition-colors">Hiking</Link></li>
                 </ul>
               </div>
 
@@ -40,9 +40,9 @@ const Footer = () => {
               <div>
                 <h4 className="text-secondary mb-3.5">Company</h4>
                 <ul className="text-white/90 space-y-2 font-medium">
-                  <li><Link href="#" className="text-xl font-semibold hover:text-white transition-colors">About</Link></li>
-                  <li><Link href="#" className="text-xl font-semibold hover:text-white transition-colors">Contact</Link></li>
-                  <li><Link href="#" className="text-xl font-semibold hover:text-white transition-colors">Blogs</Link></li>
+                  <li><Link href="#" className="text-fluid-20-16 font-semibold hover:text-white transition-colors">About</Link></li>
+                  <li><Link href="#" className="text-fluid-20-16 font-semibold hover:text-white transition-colors">Contact</Link></li>
+                  <li><Link href="#" className="text-fluid-20-16 font-semibold hover:text-white transition-colors">Blogs</Link></li>
                 </ul>
               </div>
 
@@ -59,9 +59,9 @@ const Footer = () => {
             </div>
 
             {/* Big Background Logo */}
-            <div className="-mb-22.5">
-              <Link href="/" className=" block" >
-                <Image src="/img/logo/footer-logo.svg" alt="logo" width={300} height={100} className='w-full h-75' />
+            <div className=" mt-23 sm:mt-30 md:mt-40 lg:mt-52  xl:mt-72">
+              <Link href="/" className="block absolute -bottom-[10px] left-7.5 right-7.5" >
+                <Image src="/img/logo/footer-logo.svg" alt="logo" width={300} height={100} className='w-full max-h-78' />
               </Link>
             </div>
 
