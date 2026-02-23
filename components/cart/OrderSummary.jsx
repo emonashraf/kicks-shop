@@ -1,15 +1,18 @@
 'use client'
-import Button from '../ui/Button';
+import Button from '@/components/ui/Button';
 import { useCart } from '@/context/CartContext';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useTransition } from 'react'
 import Link from 'next/link';
 
 export default function OrderSummary() {
   const { cartCount, cartTotal } = useCart();
   const [mounted, setMounted] = useState(false);
+  const [, startTransition] = useTransition();
 
   useEffect(() => {
-    setMounted(true);
+    startTransition(() => {
+      setMounted(true);
+    });
   }, []);
 
   return (

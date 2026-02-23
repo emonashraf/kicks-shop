@@ -1,14 +1,17 @@
 'use client'
 import { useCart } from '@/context/CartContext';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useTransition } from 'react'
 import CartItem from './CartItem';
 
 export default function CartItems() {
   const { cart } = useCart();
   const [mounted, setMounted] = useState(false);
+  const [, startTransition] = useTransition();
 
   useEffect(() => {
-    setMounted(true);
+    startTransition(() => {
+      setMounted(true);
+    });
   }, []);
 
   if (!mounted) {

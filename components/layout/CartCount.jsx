@@ -1,14 +1,17 @@
 'use client'
 import { useCart } from '@/context/CartContext';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useTransition } from 'react'
 
 export default function CartCount() {
   const { cartCount } = useCart();
   const [mounted, setMounted] = useState(false);
+  const [, startTransition] = useTransition();
 
   useEffect(() => {
-    setMounted(true);
+    startTransition(() => {
+      setMounted(true);
+    });
   }, []);
 
   return (

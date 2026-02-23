@@ -3,6 +3,7 @@ import ProductDetailsBanner from '@/components/product/ProductDetailsBanner';
 import ProductDetailsInfo from '@/components/product/ProductDetailsInfo';
 import RelatedProducts from "@/components/product/RelatedProducts";
 import { fetchProduct } from "@/lib/product";
+import Container from "@/components/layout/Container";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;

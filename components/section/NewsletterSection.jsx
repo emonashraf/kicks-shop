@@ -1,7 +1,7 @@
 import { Plus } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import Button from "../ui/Button";
+import Button from "@/components/ui/Button";
 
 
 export default function NewsletterSection() {
