@@ -1,5 +1,5 @@
 import SliderArrowBtn from "./SliderArrowBtn";
-import Button from "@/components/ui/Button";
+import Button from "./ui/Button";
 
 export default function SectionHeading({
   title,
