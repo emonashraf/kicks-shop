@@ -1,17 +1,17 @@
 import { Plus } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import Button from "./Button";
+import Button from "../ui/Button";
 
 
-export default function Newsletter() {
+export default function NewsletterSection() {
   return (
     <div className="px-fluid-72 pt-fluid-72 pb-10 flex flex-col gap-8 lg:flex-row justify-between lg:items-center  relative z-10">
       <div className="lg:max-w-xl">
         <h2 className="text-white text-[32px] sm:text-[40px] md:text-[48px] lg:text-5xl font-black uppercase leading-tight tracking-tighter mb-fluid-16">
           Join our KicksPlus Club & get 15% off
         </h2>
-        <p className="text-white/80 text-lg">Sign up for free! Join the community.</p>
+        <p className="text-body-bg text-lg">Sign up for free! Join the community.</p>
         <div className="mt-fluid-32 flex  gap-2">
           <input
             type="email"

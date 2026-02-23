@@ -1,21 +1,23 @@
 
+
 import Link from 'next/link'
 import MobileMenu from './MobileMenu'
 import Image from 'next/image'
-import { Search, UserRound} from "lucide-react";
+import { Search, UserRound } from "lucide-react";
+import CartCount from './CartCount';
+import Container from './Container';
 
 export default function Header() {
   return (
-    <div className="container mt-8">
+    <Container className="mt-8">
       <header className="bg-off-white rounded-fluid-24 p-fluid-32-16  relative">
         <div className="flex justify-between items-center">
-
           <div className="flex items-center gap-4">
             <div className="lg:hidden">
               <MobileMenu />
             </div>
 
-            <nav className="hidden lg:flex gap-8 font-medium font-rubik uppercase tracking-wide">
+            <nav className="hidden lg:flex gap-8 font-semibold font-heading uppercase tracking-wide">
               <Link href="/" className="hover:underline decoration-2 underline-offset-8">New Drops 🔥</Link>
               <Link href="/" className="hover:underline decoration-2 underline-offset-8">Men</Link>
               <Link href="/" className="hover:underline decoration-2 underline-offset-8">Women</Link>
@@ -31,12 +33,10 @@ export default function Header() {
           <div className="flex items-center gap-[clamp(0.625rem,1.5vw,2.5rem)]">
             <button className="transition-colors hidden sm:block outline-none hover:text-primary"><Search size={22} /></button>
             <button className=" transition-colors  outline-none hover:text-primary"><UserRound size={22} /></button>
-            <Link href="/cart" className="relative group outline-none">
-              <span className="w-8 h-8 bg-secondary rounded-full grid place-items-center">0</span>
-            </Link>
+            <CartCount />
           </div>
         </div>
       </header>
-    </div>
+    </Container>
   )
 }

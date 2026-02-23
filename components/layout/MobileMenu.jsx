@@ -50,7 +50,7 @@ export default function MobileMenu() {
         >
           {/* Header */}
           <div className="flex justify-between items-center mb-10">
-            <SheetTitle className="font-rubik font-bold text-2xl uppercase italic tracking-tighter">
+            <SheetTitle className="font-heading font-bold text-2xl uppercase italic tracking-tighter">
               Menu
             </SheetTitle>
 
@@ -65,7 +65,7 @@ export default function MobileMenu() {
           </div>
 
           {/* Navigation */}
-          <nav className="flex flex-col gap-6 text-xl font-bold font-rubik tracking-tight">
+          <nav className="flex flex-col gap-6 text-xl font-bold font-heading tracking-tight">
             <Link href="/" onClick={() => setIsOpen(false)}>NEW DROPS 🔥</Link>
             <Link href="/" onClick={() => setIsOpen(false)}>MEN</Link>
             <Link href="/" onClick={() => setIsOpen(false)}>WOMEN</Link>

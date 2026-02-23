@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import ProductRating from './ProductRating';
+import ProductRating from './product/ProductRating';
 import Link from 'next/link';
 
 const TestimonialCard = ({ title, review, rating, userImage, productImage }) => {

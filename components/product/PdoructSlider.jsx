@@ -3,23 +3,20 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
+import ProductCard from './Product';
 
 // Import Swiper necessary styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-import ProductCard from './ProductCard';
-import SliderArrowBtn from './SliderArrowBtn';
-import SectionHeading from './SectionHeading';
 
-const ProductSlider = ({ products = [] }) => {
+export default function PdoructSlider({ products = [] }) {
 
   if (!products || products.length === 0) return null;
 
   return (
     <>
-
       <Swiper
         modules={[Navigation, Pagination]}
         spaceBetween={20}
@@ -42,12 +39,10 @@ const ProductSlider = ({ products = [] }) => {
         {products.map((product, index) => (
           <SwiperSlide key={index}>
             <ProductCard
-              src={product.src}
-              badge={product.badge}
-              title={product.title}
-              buttonText="VIEW PRODUCT"
-              price={product.price}
-              link={product.link}
+              product={product}
+              key={product.id}
+              badge="NEW"
+              index={index}
             />
           </SwiperSlide>
         ))}
@@ -60,5 +55,3 @@ const ProductSlider = ({ products = [] }) => {
     </>
   );
 };
-
-export default ProductSlider;

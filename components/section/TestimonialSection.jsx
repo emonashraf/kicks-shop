@@ -7,10 +7,11 @@ import { Autoplay } from "swiper/modules";
 // Swiper styles
 import "swiper/css";
 
-import SectionHeading from "./SectionHeading";
-import TestimonialCard from "./TestimonialCard";
+import SectionHeading from "@/components/SectionHeading";
+import TestimonialCard from "@/components/TestimonialCard";
+import Container from "../layout/Container";
 
-const Testimonials = () => {
+const TestimonialSection = () => {
   const testimonials = [
     {
       id: 1,
@@ -40,7 +41,7 @@ const Testimonials = () => {
 
   return (
     <section className="my-fluid-128 overflow-hidden">
-      <div className="container">
+      <Container>
         <SectionHeading title="REVIEWS" buttonText="SEE ALL" />
 
         <Swiper
@@ -71,9 +72,9 @@ const Testimonials = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
+      </Container>
     </section>
   );
 };
 
-export default Testimonials;
+export default TestimonialSection;

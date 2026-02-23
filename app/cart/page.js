@@ -1,12 +1,12 @@
 import React from 'react'
-import Cart from '../components/Cart'
-import Link from 'next/link'
+import Cart from '../../components/cart/Cart'
+import RelatedProducts from '../../components/product/RelatedProducts'
 
 export default function page() {
   return (
     <>
       <Cart />
-      <div></div>
+      <RelatedProducts />
     </>
   )
 }

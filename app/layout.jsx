@@ -1,7 +1,8 @@
 import "./globals.css";
 import { Rubik, Open_Sans } from "next/font/google";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
+import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
+import { CartProvider } from "@/context/CartContext";
 
 const rubik = Rubik({
   subsets: ["latin"],
@@ -19,9 +20,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${rubik.variable} ${openSans.variable}`}>
       <body className="font-body">
-        <Header />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
+        <CartProvider>
+          <Header />
+          <main className="min-h-screen">{children}</main>
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );
