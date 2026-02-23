@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Heart } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
-import Button from '../ui/Button';
+import Button from "@/components/ui/Button";
 
 const staticData = {
   colors: [

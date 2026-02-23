@@ -7,7 +7,8 @@ import { FreeMode, Thumbs, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/thumbs";
-import Button from "./ui/Button";
+import Button from "@/components/ui/Button";
+
 
 export default function HeroSlider() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);

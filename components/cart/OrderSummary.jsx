@@ -2,7 +2,7 @@
 import { useCart } from '@/context/CartContext';
 import React, { useEffect, useState, useTransition } from 'react'
 import Link from 'next/link';
-import Button from '../ui/Button';
+import Button from "@/components/ui/Button";
 
 export default function OrderSummary() {
   const { cartCount, cartTotal } = useCart();
